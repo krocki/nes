@@ -12,8 +12,8 @@ endif
 
 all: nes
 
-nes: 6502/6502.o 6502/6502.h Makefile nes.o
-	${GCC} nes.o 6502/6502.o ${C_FLAGS} ${GL_FLAGS} -o $@
+nes: 6502/6502.o 6502/6502.h Makefile nes.o ppu.o mem.o
+	${GCC} nes.o ppu.o mem.o 6502/6502.o ${C_FLAGS} ${GL_FLAGS} -o $@
 
 %.o: %.c
 	${GCC} ${C_FLAGS} -c $< -o $@
